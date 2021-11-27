@@ -36,21 +36,21 @@ The general structure of the model is shown in the figure below
 See the paper for details
 
 ### Demo
-We provide `demo.py` for users to quickly demonstrate the model
+We provide `demo.py` for users to quickly demonstrate the model 
 
-This file will load a pre training model to detect the lanes in the picture and output the results. The output results are roughly as shown in the figure:
+This file will load a pre training model to detect the lanes in the picture and output the results. The output results are roughly as shown in the figure: 
 ![new_model](./image/demo.PNG)
 
 ### Create dataset
-This paper uses the tusimple dataset to pre train the model, and uses the self labeled data for training. If you also want to establish your own dataset, you can use the following methods
+This paper uses the tusimple dataset to pre train the model, and uses the self labeled data for training. If you also want to establish your own dataset, you can use the following methods 
 #### 1. Install Labelme
-Labelme is a JavaScript annotation tool for online image annotation. Compared with traditional image annotation tools, its advantage is that we can use this tool anywhere. In addition, it can also help us label images without installing or copying large data sets on the computer.
+Labelme is a JavaScript annotation tool for online image annotation. Compared with traditional image annotation tools, its advantage is that we can use this tool anywhere. In addition, it can also help us label images without installing or copying large data sets on the computer. 
 
-It is recommended to use `pip install` to install the tool
+It is recommended to use `pip install` to install the tool 
 
 #### 2. Batch processing of annotation files
-windows 10：
-Write the following statement in a file, change the suffix to `.bat`, and run
+windows 10： 
+Write the following statement in a file, change the suffix to `.bat`, and run 
 ``` bash
 @echo off
 for %%i in (*.json) do labelme_json_to_dataset "%%i"
@@ -58,36 +58,36 @@ pause
 ```
 
 Linux：
-Give permission to run and run
+Give permission to run and run 
 
 #### 3. Generate datasets in tusimple format
-Run `generate_tusimple_dataset.py` script to generate corresponding training set
+Run `generate_tusimple_dataset.py` script to generate corresponding training set 
 ![train_data](./image/train_data.PNG)
 
-**Note if the files' path are correct**
+**Note if the files' path are correct** 
 
 ### Training model
-You can use the `train.py` script to train the model. The model will be saved in the `checkpoints` folder every 100 times
+You can use the `train.py` script to train the model. The model will be saved in the `checkpoints` folder every 100 times 
 
-Adam optimization is used by default. The learning rate is 0.0005 and the number of iterations is 2000
+Adam optimization is used by default. The learning rate is 0.0005 and the number of iterations is 2000 
 
 #### Pre training model
-The following points should be paid attention to when using tusimple data set for model pre training：
+The following points should be paid attention to when using tusimple data set for model pre training： 
 1. When calling the `main` function, please set the keyword `type` to `pre_train`
 2. Please set the `dataset` keyword in `utils.cli_helper` correctly
 
 #### Formal training
-The following points need to be paid attention to during model training:
-1. Please set the `model_path` variable of `train.py` function reasonably
+The following points need to be paid attention to during model training: 
+1. Please set the `model_path` variable of `train.py` function reasonably 
 ```python
 model_path = "Your pre training model"
 ```
-2. When calling the `main` function, please do not set the keyword `type` to `pre_train`
+2. When calling the `main` function, please do not set the keyword `type` to `pre_train` 
 
 ### Test model
-We provide a test function to estimate the accuracy of the model and the calculation time, just call `test.py`
+We provide a test function to estimate the accuracy of the model and the calculation time, just call `test.py` 
 
-However, when using this file, please set the value of the `test_dataset_file,model_path` variable in the `main` function reasonably
+However, when using this file, please set the value of the `test_dataset_file,model_path` variable in the `main` function reasonably 
 
 ```python
 test_dataset_file = os.path.join(args.dataset, 'The file that contains the test set path')

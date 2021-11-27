@@ -39,6 +39,7 @@ See the paper for details
 We provide `demo.py` for users to quickly demonstrate the model 
 
 This file will load a pre training model to detect the lanes in the picture and output the results. The output results are roughly as shown in the figure: 
+
 ![new_model](./image/demo.PNG)
 
 ### Create dataset

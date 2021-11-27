@@ -6,14 +6,14 @@ It is recommended to use vscode to open it, otherwise some unexpected problems m
 
 Create a virtual environment using Anaconda:
 
-python3.7+
-torchvision>=0.9.1
-pytorch>=1.8.1
-sklearn
-Pillow>=8.2.0
-opencv-python>=4.5.1
-matplotlib>=3.1.3
-numpy>1.21.2
+python3.7+  
+torchvision>=0.9.1  
+pytorch>=1.8.1  
+sklearn  
+Pillow>=8.2.0  
+opencv-python>=4.5.1  
+matplotlib>=3.1.3  
+numpy>1.21.2  
 tqdm
 
 It is recommended to use the `conda install`command to install the above dependencies
